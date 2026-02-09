@@ -1,0 +1,105 @@
+<!--
+GRID:
+¿Cómo empezar con el CSS?
+
+1. box-sizing: border-box
+2. console.log del css con border: 1px solid
+3. Aplicamos altura al body para que ocupe todo el espacio con min-height: 100vh y le quitamos el margin con margin: 0
+4. Bajamos el footer al final del body. Podemos usar flex o grid en el body. GRID -> display: grid
+5. Ponemos 1 fila para cada elemento (header/main/footer) -> en body: grid-template-rows: min-content auto min-content;
+-->
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Muestra de layout" />
+        <title>Muestra de layout</title>
+        <link rel="shortcut icon" href="favicon.svg" type="image/xml-svg" />
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            header,
+            main,
+            footer {
+                border: 1px solid;
+            }
+            body {
+                min-height: 100vh;
+                margin: 0;
+                display: grid;
+                /* grid-template-columns: auto; -> No necesario para una sola columna */
+                grid-template-rows: min-content auto min-content;
+                padding: 1rem;
+            }
+            main {
+                background-color: antiquewhite;
+            }
+            :not(header) > p::first-line {
+                font-weight: bold;
+            }
+            img {
+                width: 100%;
+                /* para que la imagen no cambie el aspect ratio: */
+                height: min-content;
+            }
+            .container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+
+                h2 {
+                    grid-column: span 2;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>HEADER</h1>
+            <p>Esto es un párrafo en el header</p>
+        </header>
+
+        <main>
+            <section class="container">
+                <h2>Contenido principal de la web</h2>
+                <div class="column-1">
+                    <p>
+                        1. Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Asperiores, sint corporis debitis veniam illum
+                        excepturi aut sed vero, est ut soluta fuga? Alias
+                        dolorem necessitatibus maxime porro quas voluptate
+                        reprehenderit.
+                    </p>
+                    <p>
+                        2. Blanditiis fuga odit sunt nemo sed! Vero, id rem!
+                        Voluptatum, unde ut accusantium, sed earum est quidem
+                        praesentium adipisci soluta ullam quaerat consequuntur
+                        modi possimus odio nihil cupiditate tempora! Ducimus?
+                    </p>
+                </div>
+                <div class="column-2">
+                    <p>
+                        3. Iure eaque similique dicta labore sunt facere.
+                        Accusantium quis necessitatibus illum culpa, optio
+                        magnam esse sequi rem. Cumque, hic illo libero, earum
+                        accusamus molestias, ipsum itaque autem omnis atque
+                        distinctio?
+                    </p>
+                    <img
+                        src="./megaguay-app.jpg"
+                        alt="Ilustración de una mano sujetando un smartphone con notificaciones saliendo de la pantalla"
+                    />
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>footer de mi página</p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!--
+FLEX:
+¿Cómo empezar con el CSS?
+
+1. box-sizing: border-box
+2. console.log del css con border: 1px solid
+3. Aplicamos altura al body para que ocupe todo el espacio con min-height: 100vh y le quitamos el margin con margin: 0
+4. Bajamos el footer al final del body. Podemos usar flex o grid en el body para que sus elementos se comporten "flex" -> flex-direction: column, justify-content: space-between 
+5. dejamos al main que crezca conn  flex-grow: 1
+-->
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Muestra de layout" />
+        <title>Muestra de layout</title>
+        <link rel="shortcut icon" href="favicon.svg" type="image/xml-svg" />
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            header,
+            main,
+            footer {
+                border: 1px solid;
+            }
+            body {
+                min-height: 100vh;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 1rem;
+            }
+            main {
+                flex-grow: 1;
+                background-color: antiquewhite;
+            }
+        </style>
+    </head>
+    <body>
+        <header><h1>HEADER</h1></header>
+        <main><h2>Contenido principal de la web</h2></main>
+        <footer><p>footer de mi página</p></footer>
+    </body>
+</html>
